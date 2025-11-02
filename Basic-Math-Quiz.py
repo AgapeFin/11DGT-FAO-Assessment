@@ -106,7 +106,7 @@ while True:
         for q_num, q_text, correct, user_ans, correct_flag in history:
             status = "Correct" if correct_flag else "Incorrect"
             print(f"{q_text} Your answer: {user_ans} \n Correct answer: {correct} \n {status}") # If user puts 'yes', show quiz history of corrects and incorrects.
-            print("\n\nThank you for playing the Ultimate Basic Facts Quiz!")
+            
         break
 
     elif see_history in ["no", "n"]:
