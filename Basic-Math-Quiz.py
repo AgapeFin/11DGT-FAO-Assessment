@@ -9,14 +9,14 @@ while True:
     try:
         total_questions = int(input("How many questions would you like? "))
         if total_questions <= 0:
-            print("\nPlease enter a number greater than 0.\n")
+            print("\nPlease enter a number greater than 0.\n") # If user attempts to enter a number below 1, loops script.
             continue
         elif total_questions > 50:
-            print("\nThat is too many questions.\n")
+            print("\nThat is too many questions.\n") # If user attempts to enter a number above 50, loops script.
             continue
         break
     except ValueError:
-        print("\nPlease enter a valid whole number.\n")
+        print("\nPlease enter a valid whole number.\n") # If user enters decimal or unrecognized symbol, loop script, gives this message.
 
 operations = ["+", "-", "×", "÷"]
 
@@ -28,7 +28,7 @@ while True:
     if choice in ["1", "2", "3", "4", "5"]:
         break
     else:
-        print("Invalid choice. Try again.")
+        print("Invalid choice. Try again.") # if user enters an unrecognized symbol, loops script and gives this message.
 
 ## MAIN QUIZ LOOP ##
 
@@ -46,10 +46,10 @@ for q_num in range(1, total_questions + 1):
     a = random.randint(1, 12)
     b = random.randint(1, 12)
 
-# Fixes here just in case questions could be negative or not an integer   
+# Many Fixes here just in case questions could be negative or not an integer   
     if op == "-":
         if a < b:
-            a, b = b, a
+            a, b = b, a # swap values if subtraction questions tries to give a negative.
         correct = a - b
     elif op == "+":
         correct = a + b
@@ -57,8 +57,8 @@ for q_num in range(1, total_questions + 1):
         correct = a * b
     elif op == "÷":
         
-        correct = a
-        a = a * b
+        correct = a 
+        a = a * b # Make a equal to itself multiplied by b to avoid a being a decimal but an integer!
 
 # Asks user to enter their number    
     question = f"Q{q_num}: {a} {op} {b} = "
@@ -68,7 +68,7 @@ for q_num in range(1, total_questions + 1):
             user_answer = float(user_input)
             break
         except ValueError:
-            print("Please enter a valid number.")
+            print("Please enter a valid number.") # If user attempts to input a letter or unrecognized symbol, loop script and give this message.
 
  # Adds up the score here if user gets answer correct.   
     if abs(user_answer - correct) < 0.0001:
@@ -96,13 +96,13 @@ while True:
         print("\nQUIZ HISTORY: ")
         for q_num, q_text, correct, user_ans, correct_flag in history:
             status = "Correct" if correct_flag else "Incorrect"
-            print(f"{q_text} Your answer: {user_ans} \n Correct answer: {correct} \n {status}")
+            print(f"{q_text} Your answer: {user_ans} \n Correct answer: {correct} \n {status}") # If user puts 'yes', show quiz history of corrects and incorrects.
         break
 
     elif see_history in ["no", "n"]:
-        print("\nNo problem! Thanks for playing the Ultimate Basic Facts Quiz!")
+        print("\nNo problem! Thanks for playing the Ultimate Basic Facts Quiz!") # If user puts 'no', end whole script and send a last message.
         break
 
     else:
-        print("Please type 'yes' or 'no'.")
+        print("Please type 'yes' or 'no'.") # If user tries to input a number or any unrecognized symbol, loop script and send this message.
 
