@@ -9,11 +9,14 @@ while True:
     try:
         total_questions = int(input("How many questions would you like? "))
         if total_questions <= 0:
-            print("Please enter a number greater than 0.")
+            print("\nPlease enter a number greater than 0.\n")
+            continue
+        elif total_questions > 50:
+            print("\nThat is too many questions.\n")
             continue
         break
     except ValueError:
-        print("Please enter a valid whole number.")
+        print("\nPlease enter a valid whole number.\n")
 
 operations = ["+", "-", "×", "÷"]
 
@@ -85,12 +88,21 @@ print(f"Your score: {percentage}%")
 
 
 ## Quiz HISTORY ##
-see_history = input("\nWould you like to see your quiz history? (yes/no): ").strip().lower()
-if see_history in ["yes", "y"]:
-    print("\nQUIZ HISTORY: ")
-    for q_num, q_text, correct, user_ans, correct_flag in history:
-        status = "Correct" if correct_flag else "Incorrect"
-        print(f"{q_text} Your answer: {user_ans} \n Correct answer: {correct} \n {status}")
+while True:    
+    see_history = input("\nWould you like to see your quiz history? (yes/no): ").strip().lower()
+    
+    
+    if see_history in ["yes", "y"]:
+        print("\nQUIZ HISTORY: ")
+        for q_num, q_text, correct, user_ans, correct_flag in history:
+            status = "Correct" if correct_flag else "Incorrect"
+            print(f"{q_text} Your answer: {user_ans} \n Correct answer: {correct} \n {status}")
+        break
 
-print("\nThanks for playing the Ultimate Basic Facts Quiz!")
+    elif see_history in ["no", "n"]:
+        print("\nNo problem! Thanks for playing the Ultimate Basic Facts Quiz!")
+        break
+
+    else:
+        print("Please type 'yes' or 'no'.")
 
