@@ -80,3 +80,14 @@ print(f"Well done, {name}! You got {score}/{total_questions} correct.")
 percentage = round((score / total_questions) * 100, 1)
 print(f"Your score: {percentage}%")
 
+
+
+see_history = input("\nWould you like to see your quiz history? (yes/no): ").strip().lower()
+if see_history in ["yes", "y"]:
+    print("\nQUIZ HISTORY: ")
+    for q_num, q_text, correct, user_ans, correct_flag in history:
+        status = "Correct" if correct_flag else "Incorrect"
+        print(f"{q_text} Your answer: {user_ans} \n Correct answer: {correct} \n {status}")
+
+print("\nThanks for playing the Ultimate Basic Facts Quiz!")
+
