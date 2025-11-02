@@ -1,10 +1,19 @@
 import random
+
 ## BASIC FACTS QUIZ ##
 
 print("Welcome to the Ultimate Basic Facts Quiz!")
 
 # Get user name and number of questions
-name = input("What is your name? ").strip()
+while True:
+    name = input("What is your name? ").strip()
+    if len(name) == 0:
+        print("Please enter your name! (it can’t be blank).")
+    elif len(name) > 15:
+        print("That name is too long! Please use 15 characters or fewer.")
+    else:
+        break
+
 while True:
     try:
         total_questions = int(input("How many questions would you like? "))
