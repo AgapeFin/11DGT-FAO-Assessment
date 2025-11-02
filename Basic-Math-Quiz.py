@@ -16,7 +16,7 @@ while True:
 
 while True:
     try:
-        total_questions = int(input("How many questions would you like? "))
+        total_questions = int(input("How many questions would you like? (1 min, 50 max) "))
         if total_questions <= 0:
             print("\nPlease enter a number greater than 0.\n") # If user attempts to enter a number below 1, loops script.
             continue
