@@ -1,6 +1,6 @@
 import random
 
-print("Welcome to the Basic Facts Quiz!")
+print("Welcome to the Ultimate Basic Facts Quiz!")
 
 
 name = input("What is your name? ").strip()
@@ -72,4 +72,11 @@ for q_num in range(1, total_questions + 1):
     else:
         print(f"Incorrect. The correct answer was {correct}.\n")
         history.append((q_num, question.strip(), correct, user_answer, False))
+
+
+
+print("\n QUIZ SUMMARY: ")
+print(f"Well done, {name}! You got {score}/{total_questions} correct.")
+percentage = round((score / total_questions) * 100, 1)
+print(f"Your score: {percentage}%")
 
